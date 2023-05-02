@@ -5,6 +5,6 @@ This is a to-do list application using MongoDB, Spring Boot Java, and Angular th
 
 [Live Demo](https://todo.grthomelab.com)
 
-[Todo Preview]![image](https://user-images.githubusercontent.com/3360055/235794340-d8117b25-b0bd-4e0a-b411-7288b2768781.png)
+![image](https://user-images.githubusercontent.com/3360055/235794340-d8117b25-b0bd-4e0a-b411-7288b2768781.png)
 
 [Backend Repo](https://github.com/gbrown09/grthomelab-backend)
