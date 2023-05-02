@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://backend.local.grthomelab.com/api',
+  apiUrl: 'http://local.grthomelab.com:4202/api',
 };
