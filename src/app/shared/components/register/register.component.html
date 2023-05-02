@@ -1,0 +1,37 @@
+<div class="main-div">
+    <h1 mat-dialog-title>Sign Up</h1>
+    <div mat-dialog-content class="form-div">
+        <form class="login-form" [formGroup]="registerForm">
+            <mat-form-field class="full-width">
+                <mat-label>Username</mat-label>
+                <input matInput [formControl]="registerForm.controls.username" name="task" autocomplete="off"
+                    placeholder="Username">
+                <mat-error *ngIf="username?.hasError('minlength') && !username?.hasError('required')">
+                    Username must be at least 3 characters
+                </mat-error>
+                <mat-error *ngIf="username?.hasError('required')">
+                    Username is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" [formControl]="registerForm.controls.password" matInput name="category"
+                    autocomplete="off" placeholder="Password">
+                <mat-error *ngIf="password?.hasError('minlength') && !password?.hasError('required')">
+                    Password must be at least 6 characters
+                </mat-error>
+                <mat-error *ngIf="password?.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-error *ngIf="isSignUpFailed">
+                {{errorMessage}}
+            </mat-error>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button color="primary" (click)="closeDialog()">Cancel</button>
+        <span class="spacer"></span>
+        <button [disabled]="!registerForm.valid" mat-raised-button color="primary" (click)="onSubmit()">Sign Up</button>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="todo">
+  <mat-card>
+    <div class="card-toolbar">
+      <mat-toolbar color="primary">
+        <span>{{user}} Tasks</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="openDialog()" class="example-icon"
+          aria-label="Example icon-button with menu icon">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button (click)="openConfirmDialog()" class="example-icon"
+          aria-label="Example icon-button with menu icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+    <mat-card-content>
+      <mat-selection-list #items (selectionChange)="changeSelectedOptions(items.selectedOptions.selected)">
+        <div *ngIf="data[0]; else noData">
+          <div mat-subheader *ngFor="let category of categories" class="category-sub-header"> {{category}}
+            <div *ngFor="let todo of data; let i=index">
+              <mat-list-option *ngIf="todo.category === category" [value]="todo"
+                [ngClass]="{normal: todo.done === false, strike: todo.done === true}">
+                {{todo.item}}
+              </mat-list-option>
+            </div>
+          </div>
+        </div>
+        <ng-template #noData>
+          <h2>No Data</h2>
+        </ng-template>
+      </mat-selection-list>
+      <mat-card-actions align="end">
+        <button mat-raised-button (click)="markAsDone(items.selectedOptions.selected)" color="primary">Mark
+          Done</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</div>

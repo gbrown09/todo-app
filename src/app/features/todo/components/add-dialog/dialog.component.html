@@ -1,0 +1,23 @@
+<div class="main-div">
+  <h1 mat-dialog-title>New Task</h1>
+  <div mat-dialog-content class="form-div">
+    What would you like to add?
+    <form class="add-form" [formGroup]="addFormGroup">
+      <mat-form-field class="full-width">
+        <mat-label>Task</mat-label>
+        <input matInput [formControl]="task" name="task" autocomplete="off" placeholder="Ex. Exercise" />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Category</mat-label>
+        <input [formControl]="categoryInput" matInput name="category" autocomplete="off" placeholder="Ex. Work" />
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="closeDialog()">Cancel</button>
+    <span class="spacer"></span>
+    <button [disabled]="!addFormGroup.valid" mat-raised-button color="primary" (click)="doAction()">
+      Add
+    </button>
+  </div>
+</div>

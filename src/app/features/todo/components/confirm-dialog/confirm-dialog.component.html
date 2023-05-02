@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Confirm Delete</h1>
+<div mat-dialog-content class="form-div">
+  Are you sure you want to delete {{data.count}} tasks?
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="closeDialog()">Cancel</button>
+  <span class="spacer"></span>
+  <button mat-raised-button color="primary" (click)="doAction()">Confirm</button>
+</div>

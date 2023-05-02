@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span>To-Do List</span>
+  <span class="spacer"></span>
+  <button *ngIf="!currentUser" mat-icon-button (click)="openLoginDialog()" class="icon" aria-label="Account Icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <div *ngIf="currentUser">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="icon" aria-label="Account Icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <h2>Logged in as {{currentUser.username}}</h2>
+      <button mat-button color="primary" (click)="logOut()">Log Out</button>
+    </mat-menu>
+  </div>
+  <button mat-icon-button (click)="selectLightTheme()" value="light" class="icon" aria-label="Light mode" *ngIf="light">
+    <mat-icon>light_mode</mat-icon>
+  </button>
+  <button mat-icon-button (click)="selectDarkTheme()" value="dark" class="icon" aria-label="Dark mode" *ngIf="dark">
+    <mat-icon>dark_mode</mat-icon>
+  </button>
+</mat-toolbar>

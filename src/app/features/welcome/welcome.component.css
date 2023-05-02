@@ -1,0 +1,17 @@
+.content {
+  margin-top: 4rem;
+  height: 50%;
+}
+
+.card {
+  margin: auto;
+  display: grid;
+  width: 80%;
+  height: 80%;
+}
+
+mat-card-title,
+mat-card-actions,
+mat-card-content {
+  margin: auto;
+}

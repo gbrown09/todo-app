@@ -1,0 +1,38 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.todo {
+  margin: auto;
+  max-width: 70%;
+  display: grid;
+}
+
+mat-list-option {
+  max-width: 99%;
+}
+
+.button-row {
+  height: 2.5rem;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.normal {
+  text-decoration: null;
+}
+
+.dialog-cust {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.category-sub-header {
+  font-weight: bold;
+  font-size: large;
+}
+
+.loading-spinner {
+  margin: auto;
+}

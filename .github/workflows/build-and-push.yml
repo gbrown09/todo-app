@@ -1,0 +1,31 @@
+name: Build and push Docker Image
+on:
+  push:
+    branches:
+      - "master"
+jobs:
+  build_push:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: Checkout
+      uses: actions/checkout@v3
+
+    - name: print contents
+      run: ls . -a      
+    -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+    -
+      name: Build and export to Docker
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: ghcr.io/gbrown09/grthomelab-todo:latest
+        cache-from: type=registry,ref=ghcr.io/gbrown09/grthomelab-todo:latest
+        cache-to: type=inline
